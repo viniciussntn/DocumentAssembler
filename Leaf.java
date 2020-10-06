@@ -8,11 +8,11 @@ public class Leaf implements Node {
         this.text = text;
     }
 
-    public void printText() {
-        System.out.println(this.text);
+    public String getText() {
+        return this.text;
     }
 
-    public void setText (String text) {
+    public void setText(String text) {
         this.text = text;
     }
 }

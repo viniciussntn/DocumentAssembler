@@ -6,11 +6,16 @@ public class Branch implements Node {
     
     ArrayList<Node> subNodes = new ArrayList<>();
     
-    public void printText() {
+    public String getText() {
         
+        String nodeString = "";
+
         for(Node node : this.subNodes) {
-            node.printText();
+            
+            nodeString += node.getText() + " ";
         }
+
+        return nodeString;
     }
 
     public void addNode(Node child) {
