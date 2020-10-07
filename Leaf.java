@@ -1,6 +1,6 @@
 package documentassembler;
 
-public class Leaf implements Node {
+public class Leaf extends Node {
     
     String text;
 
@@ -15,4 +15,15 @@ public class Leaf implements Node {
     public void setText(String text) {
         this.text = text;
     }
+
+
+    public int getGrau() {
+        return 0;
+    }
+
+
+
+
+
+
 }

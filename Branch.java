@@ -2,7 +2,7 @@ package documentassembler;
 
 import java.util.ArrayList;
 
-public class Branch implements Node {
+public class Branch extends Node {
     
     ArrayList<Node> subNodes = new ArrayList<>();
     
@@ -26,5 +26,17 @@ public class Branch implements Node {
     public void removeNode(Node child) {
 
         subNodes.remove(child);
+    }
+
+    public int getGrau() {
+        int grau = 0;
+
+        for(Node subNo : subNodes ) {
+            
+            grau++;
+            grau += subNo.getGrau();
+        } 
+
+        return grau;
     }
 }
