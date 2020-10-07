@@ -35,15 +35,15 @@ class documentAssembler {
         Branch branch2 = new Branch();
 
         
-        root.addNode(new Leaf("Se eu"));
+        root.addNode(new Leaf("Texto"));
         root.addNode(branch1);
         
-        branch1.addNode(new Leaf("fosse voces"));
-        branch1.addNode(new Leaf("eu"));
+        branch1.addNode(new Leaf("de exemplo"));
+        branch1.addNode(new Leaf("para"));
         branch1.addNode(branch2);
         
-        branch2.addNode(new Leaf("me"));
-        branch2.addNode(new Leaf("contrataria!"));
+        branch2.addNode(new Leaf("assemble"));
+        branch2.addNode(new Leaf("do documento."));
         
         documentAssembler looplex = new documentAssembler(root);
         looplex.txtAssemble();
