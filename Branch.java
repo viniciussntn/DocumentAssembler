@@ -19,7 +19,8 @@ public class Branch extends Node {
     }
 
     public void addNode(Node child) {
-       
+        
+        child.setNivel( this.getNivel() + 1 );
         subNodes.add(child);
     }
 
@@ -38,5 +39,23 @@ public class Branch extends Node {
         } 
 
         return grau;
+    }
+
+    // n tá pronto
+    public int getAltura() {
+   
+        int altura = this.getNivel();
+
+        for (Node node : subNodes) {
+            
+            if(node.getNivel() > altura ) {
+                altura = node.getNivel();
+            } 
+
+            if(node instanceof Branch) {
+                node.getAltura();
+            }
+        }
+        return altura;
     }
 }

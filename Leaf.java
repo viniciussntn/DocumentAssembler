@@ -21,9 +21,8 @@ public class Leaf extends Node {
         return 0;
     }
 
-
-
-
-
+    public int getAltura() {
+        return 0;
+    }
 
 }

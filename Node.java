@@ -13,7 +13,17 @@ public abstract class Node {
     public int profundidade;
     public int altura;
     public int grau;
+    public int nivel;
 
     public abstract String getText();
     public abstract int getGrau();
+    public abstract int getAltura();
+
+    public void setNivel(int nivel) {
+      this.nivel = nivel;
+    }
+
+    public int getNivel() {
+        return this.nivel;
+    }
 }
