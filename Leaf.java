@@ -1,4 +1,5 @@
-package documentassembler;
+package looplex;
+import java.util.ArrayList;
 
 public class Leaf extends Node {
     
@@ -23,6 +24,10 @@ public class Leaf extends Node {
 
     public int getAltura() {
         return 0;
+    }
+
+    public ArrayList<Node> getSubNos() {
+        return null;
     }
 
 }

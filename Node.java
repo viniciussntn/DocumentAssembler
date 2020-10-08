@@ -1,4 +1,5 @@
-package documentassembler;
+package looplex;
+import java.util.ArrayList;
 
  /*
 - **Grau:** Denomina-se grau o número de subárvores de um nó. Nós de grau zero são chamados de **nós externos** ou **folhas**. Os demais são chamados de **nós internos**.
@@ -10,14 +11,15 @@ package documentassembler;
 
 public abstract class Node {
 
-    public int profundidade;
-    public int altura;
-    public int grau;
-    public int nivel;
+    private int profundidade;
+    private int altura;
+    private int grau;
+    private int nivel;
 
     public abstract String getText();
     public abstract int getGrau();
     public abstract int getAltura();
+    public abstract ArrayList<Node> getSubNos();
 
     public void setNivel(int nivel) {
       this.nivel = nivel;

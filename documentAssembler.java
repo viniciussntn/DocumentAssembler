@@ -1,17 +1,19 @@
-package documentassembler;
+package looplex;
 
 import java.io.IOException;
 import java.io.FileWriter;
 
 class documentAssembler {
     Branch root;
+    Percorrimento metodoDePercorrimento;
 
-    public documentAssembler (Branch root) {
+    public documentAssembler (Branch root, Percorrimento metodoDePercorrimento) {
         this.root = root;
+        this.metodoDePercorrimento = metodoDePercorrimento;
     }
 
     public void consoleAssemble() { 
-        System.out.println(this.root.getText());
+        metodoDePercorrimento.assemble(this.root);
     }
 
     public void txtAssemble() {
@@ -20,7 +22,7 @@ class documentAssembler {
 
 		try {
             output = new FileWriter("document.txt");
-            output.write("O texto contido no nó inserido é: " + this.root.getText());       
+            output.write("0225 O texto contido no nó inserido é: " + this.root.getText());       
             output.close();
 
 		} catch (IOException e) {
@@ -45,7 +47,10 @@ class documentAssembler {
         branch2.addNode(new Leaf("assemble"));
         branch2.addNode(new Leaf("do documento."));
         
-        documentAssembler looplex = new documentAssembler(root);
-        looplex.txtAssemble();
+        documentAssembler looplex = new documentAssembler(root, new emOrdem());
+        looplex.consoleAssemble();
+
+        
+
     }
 }

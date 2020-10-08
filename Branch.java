@@ -1,23 +1,15 @@
-package documentassembler;
+package looplex;
 
 import java.util.ArrayList;
 
 public class Branch extends Node {
     
-    ArrayList<Node> subNodes = new ArrayList<>();
-    
+    private ArrayList<Node> subNodes = new ArrayList<>();
+
     public String getText() {
-        
-        String nodeString = "";
-
-        for(Node node : this.subNodes) {
-            
-            nodeString += node.getText() + " ";
-        }
-
-        return nodeString;
+        return null;
     }
-
+    
     public void addNode(Node child) {
         
         child.setNivel( this.getNivel() + 1 );
@@ -44,18 +36,20 @@ public class Branch extends Node {
     // n tá pronto
     public int getAltura() {
    
-        int altura = this.getNivel();
+        int alturaBase = this.getNivel();
+        int maiorAltura = alturaBase;
 
         for (Node node : subNodes) {
-            
-            if(node.getNivel() > altura ) {
-                altura = node.getNivel();
-            } 
 
-            if(node instanceof Branch) {
+            if(node.getNivel() > maiorAltura ) {
+                maiorAltura = node.getNivel();
                 node.getAltura();
-            }
+            } 
         }
-        return altura;
+        return (maiorAltura - alturaBase) ;
+    }
+
+    public ArrayList<Node> getSubNos() {
+        return this.subNodes;
     }
 }
