@@ -13,16 +13,19 @@ class documentAssembler {
     }
 
     public void consoleAssemble() { 
+
         metodoDePercorrimento.assemble(this.root);
+        System.out.println(metodoDePercorrimento.getTxtString());
     }
 
     public void txtAssemble() {
         
+        metodoDePercorrimento.assemble(this.root);
         FileWriter output = null;
 
 		try {
             output = new FileWriter("document.txt");
-            output.write("0225 O texto contido no nó inserido é: " + this.root.getText());       
+            output.write("1248 O texto contido no nó inserido é: " + metodoDePercorrimento.getTxtString());       
             output.close();
 
 		} catch (IOException e) {
@@ -48,7 +51,7 @@ class documentAssembler {
         branch2.addNode(new Leaf("do documento."));
         
         documentAssembler looplex = new documentAssembler(root, new emOrdem());
-        looplex.consoleAssemble();
+        looplex.txtAssemble();
 
         
 

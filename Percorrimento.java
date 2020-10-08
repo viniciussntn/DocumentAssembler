@@ -2,18 +2,22 @@ package looplex;
 
 import java.util.ArrayList;
 
-public interface Percorrimento {
+public abstract class Percorrimento {
+    
+    public String txtString = "";
 
-    public void assemble(Node root);
+    public abstract void assemble(Node root);
+    public abstract String getTxtString();
 }
 
-class emOrdem implements Percorrimento {
+class emOrdem extends Percorrimento {
+
     
     public void assemble(Node root) {
 
         if(root instanceof Leaf) {
            
-            System.out.println(root.getText());
+            this.txtString += root.getText() + " ";
 
         } else if (root instanceof Branch ) {
     
@@ -22,13 +26,11 @@ class emOrdem implements Percorrimento {
                 assemble(subNode);
             }
         }
-        
     }
-}
 
-class posOrdem implements Percorrimento {
-    
-    public void assemble(Node root) {
-        //wip
+
+    public String getTxtString() {
+        
+        return this.txtString;
     }
 }
