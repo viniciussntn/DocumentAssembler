@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.io.FileWriter;
 
 class documentAssembler {
+
     Branch root;
     Percorrimento metodoDePercorrimento;
 
-    public documentAssembler (Branch root, Percorrimento metodoDePercorrimento) {
+    public documentAssembler(Branch root, Percorrimento metodoDePercorrimento) {
         this.root = root;
         this.metodoDePercorrimento = metodoDePercorrimento;
     }
@@ -15,7 +16,7 @@ class documentAssembler {
     public void consoleAssemble() { 
 
         metodoDePercorrimento.assemble(this.root);
-        System.out.println(metodoDePercorrimento.getTxtString());
+        System.out.println(metodoDePercorrimento.getText());
     }
 
     public void txtAssemble() {
@@ -25,7 +26,7 @@ class documentAssembler {
 
 		try {
             output = new FileWriter("document.txt");
-            output.write("1248 O texto contido no nó inserido é: " + metodoDePercorrimento.getTxtString());       
+            output.write("1248 O texto contido no nó inserido é: " + metodoDePercorrimento.getText());       
             output.close();
 
 		} catch (IOException e) {

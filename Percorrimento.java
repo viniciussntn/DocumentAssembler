@@ -4,20 +4,19 @@ import java.util.ArrayList;
 
 public abstract class Percorrimento {
     
-    public String txtString = "";
+    public String text = "";
 
     public abstract void assemble(Node root);
-    public abstract String getTxtString();
+    public abstract String getText();
 }
 
 class emOrdem extends Percorrimento {
-
     
     public void assemble(Node root) {
 
         if(root instanceof Leaf) {
            
-            this.txtString += root.getText() + " ";
+            this.text += root.getText() + " ";
 
         } else if (root instanceof Branch ) {
     
@@ -28,9 +27,8 @@ class emOrdem extends Percorrimento {
         }
     }
 
-
-    public String getTxtString() {
+    public String getText() {
         
-        return this.txtString;
+        return this.text;
     }
 }
