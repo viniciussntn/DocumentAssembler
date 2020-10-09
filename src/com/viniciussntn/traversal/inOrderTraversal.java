@@ -2,7 +2,7 @@ package com.viniciussntn.traversal;
 
 import com.viniciussntn.nodes.*;
 
-public class inOrder extends Traversal {
+public class inOrderTraversal extends Traversal {
 
     public void assemble(Node root) {
 

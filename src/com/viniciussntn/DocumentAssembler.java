@@ -3,17 +3,26 @@ package com.viniciussntn;
 import com.viniciussntn.nodes.*;
 import com.viniciussntn.traversal.*;
 
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Date;
 
 public class DocumentAssembler {
 
-    Branch root;
-    Traversal metodoDePercorrimento;
+    private Branch root;
+    private Traversal traversalMethod;
+    private String outputFileName;
 
-    public DocumentAssembler(Branch root, Traversal metodoDePercorrimento) {
+    /**
+     * @param root indica o nó raiz para o document assembler
+     * @param chosenTraversalMethod indica o método de percorrimento
+     * @param outputFileName indica o nome do arquivo de saída
+     */
+    public DocumentAssembler(Branch root, Traversal chosenTraversalMethod, String outputFileName) {
         this.root = root;
-        this.metodoDePercorrimento = metodoDePercorrimento;
+        this.traversalMethod = chosenTraversalMethod;
+        this.outputFileName = outputFileName;
     }
 
     public static void main(String[] args) {
@@ -33,7 +42,7 @@ public class DocumentAssembler {
         branch2.addNode(new Leaf("assemble"));
         branch2.addNode(new Leaf("do documento."));
 
-        DocumentAssembler looplex = new DocumentAssembler(root, new inOrder());
+        DocumentAssembler looplex = new DocumentAssembler(root, new inOrderTraversalWithLog(), "document.txt");
         looplex.txtAssemble();
 
 
@@ -41,22 +50,35 @@ public class DocumentAssembler {
 
     public void consoleAssemble() {
 
-        metodoDePercorrimento.assemble(this.root);
-        System.out.println(metodoDePercorrimento.getText());
+        traversalMethod.assemble(this.root);
+        System.out.println(traversalMethod.getText());
     }
 
     public void txtAssemble() {
 
-        metodoDePercorrimento.assemble(this.root);
+        traversalMethod.assemble(this.root);
         FileWriter output = null;
 
         try {
-            output = new FileWriter("document.txt");
-            output.write("2317 O texto contido no nó inserido é: " + metodoDePercorrimento.getText());
+
+            FileOutputStream eraseDocumentContent = new FileOutputStream( this.getOutputFileName() );
+
+            output = new FileWriter( this.getOutputFileName(), true );
+            output.write( this.traversalMethod.getText() );
+            output.write("\nLog: " + java.time.LocalDate.now() + " " + java.time.LocalTime.now());
             output.close();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public String getOutputFileName() {
+        return outputFileName;
+    }
+
+    public void setOutputFileName(String outputFileName) {
+        this.outputFileName = outputFileName;
     }
 }

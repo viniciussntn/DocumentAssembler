@@ -1,1 +1,7 @@
-2317 O texto contido no nó inserido é: Texto de exemplo para assemble do documento. 
+Texto do nó: Texto. Nível do nó: 1. Altura do nó: 0. 
+Texto do nó: de exemplo. Nível do nó: 2. Altura do nó: 0. 
+Texto do nó: para. Nível do nó: 2. Altura do nó: 0. 
+Texto do nó: assemble. Nível do nó: 3. Altura do nó: 0. 
+Texto do nó: do documento.. Nível do nó: 3. Altura do nó: 0. 
+
+Log: 2020-10-09 00:26:19.936166400
