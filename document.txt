@@ -1,0 +1,1 @@
+2317 O texto contido no nó inserido é: Texto de exemplo para assemble do documento. 
